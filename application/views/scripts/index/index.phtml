@@ -1,0 +1,25 @@
+<div style="margin-left: auto; margin-right: auto; width:400px;">
+    <h1> 
+        Hello <?=$this->account->companyName?>!
+    </h1>
+    The following hardware was found on your account:
+    <ul>
+        <?php foreach ($this->account->hardware AS $hardware):?>
+            <li>
+                <?=$hardware->hostname?>.<?=$hardware->domain?> (<?=$hardware->primaryIpAddress?>)
+                <?php if (count($hardware->softwareComponents) > 0):?>
+                    <br />
+                    Software:
+                    <ul>
+                        <?php foreach ($hardware->softwareComponents AS $softwareComponent):?>
+                            <li>
+                                <?=$softwareComponent->softwareLicense->softwareDescription->name?> - 
+                                <?=$softwareComponent->softwareLicense->softwareDescription->version?>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                <?php endif;?>
+            </li>
+        <?php endforeach;?>
+    </ul>
+</div>
