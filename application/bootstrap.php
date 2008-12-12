@@ -70,7 +70,6 @@ $configuration = new Zend_Config_Ini(
 $registry = Zend_Registry::getInstance();
 $registry->configuration = $configuration;
 
-ini_set('display_errors',true);
 SoftLayer_Soap_Client::setApiCredentials($configuration->api->username, $configuration->api->key);
 SoftLayer_Soap_Client::setEndpoint($configuration->api->endpoint);
 
