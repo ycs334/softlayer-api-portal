@@ -3,35 +3,35 @@
 class Softlayer_Soap_Client extends SoapClient
 {
 
-    protected $headers = array();
-    protected $serviceName;
+    protected $_headers = array();
+    protected $_serviceName;
 
-    protected static $apiUser;
-    protected static $apiKey;
+    protected static $_apiUser;
+    protected static $_apiKey;
 
-    protected static $endpoint;
+    protected static $_endpoint;
 
     public function __call($functionName, $arguments = null)
     {
-        return parent::__call($functionName, $arguments, null, $this->headers, null);
+        return parent::__call($functionName, $arguments, null, $this->_headers, null);
     }
 
     public static function setApiCredentials($apiUser, $apiKey)
     {
-        self::$apiUser = $apiUser;
-        self::$apiKey  = $apiKey;
+        self::$_apiUser = $apiUser;
+        self::$_apiKey  = $apiKey;
     }
 
     public static function setEndpoint($endpoint)
     {
-        self::$endpoint = $endpoint;
+        self::$_endpoint = $endpoint;
     }
 
     public static function getSoapClient($serviceName, $id = null)
     {
-        $soapClient = new SoftLayer_Soap_Client(self::$endpoint.$serviceName.'?wsdl');
-        $soapClient->addAuthenticationHeaders(self::$apiUser, self::$apiKey);
-        $soapClient->serviceName = $serviceName;
+        $soapClient = new SoftLayer_Soap_Client(self::$_endpoint.$serviceName.'?wsdl');
+        $soapClient->addAuthenticationHeaders(self::$_apiUser, self::$_apiKey);
+        $soapClient->_serviceName = $serviceName;
 
         if ($id != null) {
             $initParameters = new stdClass();
@@ -44,7 +44,7 @@ class Softlayer_Soap_Client extends SoapClient
 
     public function addHeader($headerName, $value)
     {
-        $this->headers[$headerName] = new SoapHeader('http://api.service.softlayer.com/soap/v3/', $headerName, $value);
+        $this->_headers[$headerName] = new SoapHeader('http://api.service.softlayer.com/soap/v3/', $headerName, $value);
     }
 
     public function addAuthenticationHeaders($username, $apiKey)
@@ -61,6 +61,6 @@ class Softlayer_Soap_Client extends SoapClient
         $objectMask = new stdClass();
         $objectMask->mask = $mask;
 
-        $this->addHeader($this->serviceName.'ObjectMask', $objectMask);
+        $this->addHeader($this->_serviceName.'ObjectMask', $objectMask);
     }
 }
