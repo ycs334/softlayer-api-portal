@@ -6,20 +6,22 @@ class Softlayer_Soap_Client extends SoapClient
     protected $_headers = array();
     protected $_serviceName;
 
-    protected static $_apiUser;
-    protected static $_apiKey;
+    protected static $_user;
+    protected static $_key;
 
     protected static $_endpoint;
 
+    protected $_outputHeaders = array();
+
     public function __call($functionName, $arguments = null)
     {
-        return parent::__call($functionName, $arguments, null, $this->_headers, null);
+        return parent::__call($functionName, $arguments, null, $this->_headers, $this->_outputHeaders);
     }
 
     public static function setApiCredentials($apiUser, $apiKey)
     {
-        self::$_apiUser = $apiUser;
-        self::$_apiKey  = $apiKey;
+        self::$_user = $apiUser;
+        self::$_key  = $apiKey;
     }
 
     public static function setEndpoint($endpoint)
@@ -30,7 +32,7 @@ class Softlayer_Soap_Client extends SoapClient
     public static function getSoapClient($serviceName, $id = null)
     {
         $soapClient = new SoftLayer_Soap_Client(self::$_endpoint.$serviceName.'?wsdl');
-        $soapClient->addAuthenticationHeaders(self::$_apiUser, self::$_apiKey);
+        $soapClient->addAuthenticationHeaders(self::$_user, self::$_key);
         $soapClient->_serviceName = $serviceName;
 
         if ($id != null) {
@@ -63,4 +65,28 @@ class Softlayer_Soap_Client extends SoapClient
 
         $this->addHeader($this->_serviceName.'ObjectMask', $objectMask);
     }
+
+    public function setObjectFilter($filter)
+    {
+        $this->addHeader($this->_serviceName.'ObjectFilter', $filter);
+    }
+
+    public function setResultLimitHeader($limit, $offset = 0)
+    {
+        $resultLimit = new stdClass();
+        $resultLimit->limit = intval($limit);
+        $resultLimit->offset = intval($offset);
+
+        $this->addHeader('resultLimit', $resultLimit);
+    }
+
+    public function getOutputHeader($headerName)
+    {
+        if ($headerName == 'totalItems') {
+            return $this->_outputHeaders[$headerName]->amount;
+        }
+
+        return $this->_outputHeaders[$headerName];
+    }
+
 }

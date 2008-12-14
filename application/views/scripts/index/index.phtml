@@ -1,25 +1,55 @@
-<div style="margin-left: auto; margin-right: auto; width:400px;">
-    <h1> 
-        Hello <?=$this->account->companyName?>!
-    </h1>
-    The following hardware was found on your account:
-    <ul>
-        <?php foreach ($this->account->hardware AS $hardware):?>
-            <li>
-                <?=$hardware->hostname?>.<?=$hardware->domain?> (<?=$hardware->primaryIpAddress?>)
-                <?php if (count($hardware->softwareComponents) > 0):?>
-                    <br />
-                    Software:
-                    <ul>
-                        <?php foreach ($hardware->softwareComponents AS $softwareComponent):?>
-                            <li>
-                                <?=$softwareComponent->softwareLicense->softwareDescription->name?> - 
-                                <?=$softwareComponent->softwareLicense->softwareDescription->version?>
-                            </li>
-                        <?php endforeach;?>
-                    </ul>
-                <?php endif;?>
-            </li>
-        <?php endforeach;?>
-    </ul>
+<h3>An open source management portal for the SoftLayer API</h3>
+<!--<img src="/nonzero/nonzero_actual/nonzero_red/images/pic.gif" class="floatTL" alt="Something scenic" />-->
+
+<p>
+   This management portal provides extended functionality on top of the SoftLayer API. 
+   The goal of this portal is to enable customers of SoftLayer to have access to a pre-built fully featured portal with little effort in setup. 
+   The Zend Framework has been chosen as the core of this portal as it provides many of the required features.
+   <br />To name a few:
+</p>
+
+<ul style="margin-left: 3em; margin-top: -2em;">
+    <li>Zend_Auth - Providing sessions to users that log into the portal.</li>
+    <li>Zend_Acl - Providing deeper access control over what is currently available in the SoftLayer API.</li>
+    <li>Zend_Transalate - Providing multi-lingual support.</li>
+    <li>Zend Framework MVC - Providing a rich and easy to use system for developing the portal.</li>
+</ul>
+
+<p>
+    You can find more information about the SoftLayer API <a target="_blank" href="http://sldn.softlayer.com/wiki/index.php/Main_Page">here</a> and SoftLayer Technologies, Inc <a target="_blank" href="http://www.softlayer.com">here</a>.
+</p>
+
+<!--
+<br class="clear" />
+
+<div class="post">
+
+    <h3>Specifics about Nonzero1.0</h3>
+    <ul class="post_info">
+        <li class="date">Posted by <a href="#">enks</a> on 11.14.2006</li>
+        <li class="comments"><a href="#">44 comments</a></li>
+    </ul>					
+    <p>
+        This design comes in the following low-sodium flavors: <a href="#">red</a>, <a href="#">green</a>, <a href="#">blue</a>, <a href="#">magenta</a>, and <a href="#">brown</a>.
+    </p>
+    <p>
+        It also includes several alternate page layouts:
+        <a href="index.html">three column (fixed width)</a>,
+        <a href="index_2column.html">two column (fixed width)</a>,
+        <a href="index_columnless.html">columnless (fixed width)</a>, 
+        <a href="index_fluid.html">three column (fluid width)</a>,
+        <a href="index_fluid_2column.html">two column (fluid width)</a>,
+        and <a href="index_fluid_columnless.html">columnless (fluid width)</a>.
+        You can also change the width of the fixed width layouts if needed. See the <em>style.css</em>
+        file for more thought-provoking details.
+    </p>
+    <p>
+        And now for a profound quote by the great philosopher, <a href="http://www.lipsum.com/">Lorem Ipsum</a>:
+        Mauris neque adipiscing lacus, ac hendrerit	augue odio in mi. In ultrices enim. Curabitur a massa sed risus 
+        viverra mollis. Proin dapibus mi porttitor nisi. Donec eget nibh dictum magna iaculis pharetra.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas at ligula. Donec tellus. Etiam sem.
+        Sed quis urna. Duis tempor elit ac nulla. And don't you forget it.
+    </p>
+
 </div>
+-->

@@ -118,7 +118,7 @@ line-height: 1.8em;
 {
 width:100%;
 height:122px;
-background: #440000 url('images/n1.gif') repeat-x;
+background: #440000 url('/nonzero/nonzero_actual/nonzero_red/images/n1.gif') repeat-x;
 }
 
 #header_inner
@@ -176,7 +176,7 @@ float: left;
 margin-left: 0.5em;
 display: block;
 padding: 1.1em 1.4em 1.0em 1.4em;
-background: #fff url('images/n4.gif') repeat-x;
+background: #fff url('/nonzero/nonzero_actual/nonzero_red/images/n4.gif') repeat-x;
 border: solid 1px #fff;
 color: #616161;
 font-weight: bold;
@@ -187,7 +187,7 @@ text-decoration: none;
 
 #menu li a.active
 {
-background: #CA2F2F url('images/n3.gif') repeat-x;
+background: #CA2F2F url('/nonzero/nonzero_actual/nonzero_red/images/n3.gif') repeat-x;
 color: #fff;
 border: solid 1px #A94B4B;
 }
@@ -196,7 +196,7 @@ border: solid 1px #A94B4B;
 
 #main
 {
-background: #fff url('images/n2.gif') 0px 1px repeat-x;
+background: #fff url('/nonzero/nonzero_actual/nonzero_red/images/n2.gif') 0px 1px repeat-x;
 }
 
 #main_inner p
@@ -269,12 +269,12 @@ padding-left: 18px;
 
 #main_inner .post ul.post_info li.date
 {
-background-image: url('images/n5.gif');
+background-image: url('/nonzero/nonzero_actual/nonzero_red/images/n5.gif');
 }
 
 #main_inner .post ul.post_info li.comments
 {
-background-image: url('images/n6.gif');
+background-image: url('/nonzero/nonzero_actual/nonzero_red/images/n6.gif');
 margin-left: 1.1em;
 }
 
@@ -297,7 +297,7 @@ text-transform: lowercase;
 
 input.button
 {
-background: #CA2F2F url('images/n3.gif') repeat-x;
+background: #CA2F2F url('/nonzero/nonzero_actual/nonzero_red/images/n3.gif') repeat-x;
 color: #fff;
 border: solid 1px #A94B4B;
 font-weight: bold;

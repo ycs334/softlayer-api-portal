@@ -70,8 +70,20 @@ $configuration = new Zend_Config_Ini(
 $registry = Zend_Registry::getInstance();
 $registry->configuration = $configuration;
 
-SoftLayer_Soap_Client::setApiCredentials($configuration->api->username, $configuration->api->key);
+if ($configuration->api->username != null) {
+    SoftLayer_Soap_Client::setApiCredentials($configuration->api->username, $configuration->api->key);
+}
+
 SoftLayer_Soap_Client::setEndpoint($configuration->api->endpoint);
+
+Zend_Session::start();
+
+$softlayerApi = new Zend_Session_Namespace('softlayerApi');
+
+if ($softlayerApi->username != null) {
+    SoftLayer_Soap_Client::setApiCredentials($softlayerApi->username, $softlayerApi->key);
+}
+
 
 // CLEANUP - remove items from global scope
 // This will clear all our local boostrap variables from the global scope of 

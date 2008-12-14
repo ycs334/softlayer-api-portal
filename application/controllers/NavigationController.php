@@ -25,11 +25,11 @@ class NavigationController extends Zend_Controller_Action
 
         $currentPage = '/' . $requestedController;
 
-        if ($currentPage == '') {
+        if ($currentPage == '' || $currentPage == '/') {
             $currentPage = '/index';
         }
 
-        if (array_key_exists('/' . $requestedController, $menuItems)) {
+        if (array_key_exists($currentPage, $menuItems)) {
             $menuItems[$currentPage]->class = 'active';
         }
 
