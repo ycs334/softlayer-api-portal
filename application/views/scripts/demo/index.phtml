@@ -1,0 +1,7 @@
+<?php if ($this->sessionData->username == null):?>
+    <?=$this->form?>
+<?php else:?>
+    You are logged in as <?=$this->sessionData->username?>.
+    <br />
+    <a href="/demo/logout">Log out</a>
+<?php endif;?>

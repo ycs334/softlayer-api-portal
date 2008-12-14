@@ -1,0 +1,5 @@
+<ul>
+    <?php foreach ($this->menuItems AS $menuItem):?>
+        <li><a href="<?=$menuItem->href?>" <?= (property_exists($menuItem, 'class') == false) ? '' : 'class="' . $menuItem->class . '"'?>><?=$menuItem->text?></a></li>
+    <?php endforeach;?>
+</ul>

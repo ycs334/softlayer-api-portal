@@ -1,0 +1,11 @@
+<?php if (count($this->paginator)): ?>
+    <ul>
+        <?php foreach ($this->paginator as $item): ?>
+          <li><?= $item->hostname; ?>.<?= $item->domain?></li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+<?= $this->paginationControl($this->paginator,
+                             'Sliding',
+                             'hardware/list.phtml'); ?>
